@@ -10,6 +10,14 @@
 		364266381B9C748500166A0B /* RuntimeProfiler.h in Headers */ = {isa = PBXBuildFile; fileRef = 364266371B9C748500166A0B /* RuntimeProfiler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3642663E1B9C748600166A0B /* RuntimeProfiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 364266321B9C748500166A0B /* RuntimeProfiler.framework */; };
 		364266451B9C748600166A0B /* RuntimeProfilerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 364266441B9C748600166A0B /* RuntimeProfilerTests.m */; };
+		364266551B9C79E700166A0B /* ProfileLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364266541B9C79E700166A0B /* ProfileLog.swift */; };
+		364266571B9C7FCB00166A0B /* StatsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364266561B9C7FCB00166A0B /* StatsProvider.swift */; };
+		3642665D1B9DF02B00166A0B /* ObjectSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = 3642665B1B9DF02B00166A0B /* ObjectSwizzler.h */; };
+		3642665E1B9DF02B00166A0B /* ObjectSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3642665C1B9DF02B00166A0B /* ObjectSwizzler.m */; };
+		364B43D71B9E164C008DBC1D /* Swizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B43D61B9E164C008DBC1D /* Swizzler.swift */; };
+		364B43D81B9E16DC008DBC1D /* Profiler.h in Headers */ = {isa = PBXBuildFile; fileRef = 364266621B9E0D5000166A0B /* Profiler.h */; };
+		364B43D91B9E16E5008DBC1D /* RuntimeProfiler-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 3642665F1B9DF1B200166A0B /* RuntimeProfiler-Bridging-Header.h */; };
+		6698028D5608570121F2FAE2 /* libPods-RuntimeProfiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D9CD269CC34510B807CAF0 /* libPods-RuntimeProfiler.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +37,16 @@
 		3642663D1B9C748600166A0B /* RuntimeProfilerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeProfilerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		364266431B9C748600166A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		364266441B9C748600166A0B /* RuntimeProfilerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeProfilerTests.m; sourceTree = "<group>"; };
+		364266541B9C79E700166A0B /* ProfileLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileLog.swift; sourceTree = "<group>"; };
+		364266561B9C7FCB00166A0B /* StatsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsProvider.swift; sourceTree = "<group>"; };
+		3642665B1B9DF02B00166A0B /* ObjectSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectSwizzler.h; sourceTree = "<group>"; };
+		3642665C1B9DF02B00166A0B /* ObjectSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectSwizzler.m; sourceTree = "<group>"; };
+		3642665F1B9DF1B200166A0B /* RuntimeProfiler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeProfiler-Bridging-Header.h"; sourceTree = "<group>"; };
+		364266621B9E0D5000166A0B /* Profiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Profiler.h; sourceTree = SOURCE_ROOT; };
+		364B43D61B9E164C008DBC1D /* Swizzler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swizzler.swift; sourceTree = "<group>"; };
+		6BBD44A12E40D94890534E3D /* Pods-RuntimeProfiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RuntimeProfiler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RuntimeProfiler/Pods-RuntimeProfiler.debug.xcconfig"; sourceTree = "<group>"; };
+		70D9CD269CC34510B807CAF0 /* libPods-RuntimeProfiler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RuntimeProfiler.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B701B682C4299575BB8B8BD1 /* Pods-RuntimeProfiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RuntimeProfiler.release.xcconfig"; path = "Pods/Target Support Files/Pods-RuntimeProfiler/Pods-RuntimeProfiler.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6698028D5608570121F2FAE2 /* libPods-RuntimeProfiler.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,12 +69,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1013E0DC93EBAE8CBEC4A6E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6BBD44A12E40D94890534E3D /* Pods-RuntimeProfiler.debug.xcconfig */,
+				B701B682C4299575BB8B8BD1 /* Pods-RuntimeProfiler.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		364266281B9C748500166A0B = {
 			isa = PBXGroup;
 			children = (
 				364266341B9C748500166A0B /* RuntimeProfiler */,
 				364266411B9C748600166A0B /* RuntimeProfilerTests */,
 				364266331B9C748500166A0B /* Products */,
+				1013E0DC93EBAE8CBEC4A6E1 /* Pods */,
+				D66B9A37F8AA69E50EFB659D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,7 +101,12 @@
 		364266341B9C748500166A0B /* RuntimeProfiler */ = {
 			isa = PBXGroup;
 			children = (
+				364266531B9C79A900166A0B /* Models */,
+				364266521B9C791900166A0B /* Providers */,
+				3642665A1B9DF01700166A0B /* Utils */,
+				364266621B9E0D5000166A0B /* Profiler.h */,
 				364266371B9C748500166A0B /* RuntimeProfiler.h */,
+				3642665F1B9DF1B200166A0B /* RuntimeProfiler-Bridging-Header.h */,
 				364266351B9C748500166A0B /* Supporting Files */,
 			);
 			path = RuntimeProfiler;
@@ -102,6 +137,40 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		364266521B9C791900166A0B /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				364266561B9C7FCB00166A0B /* StatsProvider.swift */,
+			);
+			name = Providers;
+			sourceTree = "<group>";
+		};
+		364266531B9C79A900166A0B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				364266541B9C79E700166A0B /* ProfileLog.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3642665A1B9DF01700166A0B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3642665B1B9DF02B00166A0B /* ObjectSwizzler.h */,
+				3642665C1B9DF02B00166A0B /* ObjectSwizzler.m */,
+				364B43D61B9E164C008DBC1D /* Swizzler.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		D66B9A37F8AA69E50EFB659D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70D9CD269CC34510B807CAF0 /* libPods-RuntimeProfiler.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -109,7 +178,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364B43D81B9E16DC008DBC1D /* Profiler.h in Headers */,
+				364B43D91B9E16E5008DBC1D /* RuntimeProfiler-Bridging-Header.h in Headers */,
 				364266381B9C748500166A0B /* RuntimeProfiler.h in Headers */,
+				3642665D1B9DF02B00166A0B /* ObjectSwizzler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,10 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 364266481B9C748600166A0B /* Build configuration list for PBXNativeTarget "RuntimeProfiler" */;
 			buildPhases = (
+				4DD3DCE33C6858E854526365 /* Check Pods Manifest.lock */,
 				3642662D1B9C748500166A0B /* Sources */,
 				3642662E1B9C748500166A0B /* Frameworks */,
 				3642662F1B9C748500166A0B /* Headers */,
 				364266301B9C748500166A0B /* Resources */,
+				F9E0BF8150DD23BEEF91295C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,11 +278,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4DD3DCE33C6858E854526365 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F9E0BF8150DD23BEEF91295C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RuntimeProfiler/Pods-RuntimeProfiler-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3642662D1B9C748500166A0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3642665E1B9DF02B00166A0B /* ObjectSwizzler.m in Sources */,
+				364266551B9C79E700166A0B /* ProfileLog.swift in Sources */,
+				364B43D71B9E164C008DBC1D /* Swizzler.swift in Sources */,
+				364266571B9C7FCB00166A0B /* StatsProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +432,9 @@
 		};
 		364266491B9C748600166A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BBD44A12E40D94890534E3D /* Pods-RuntimeProfiler.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -331,12 +444,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		3642664A1B9C748600166A0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B701B682C4299575BB8B8BD1 /* Pods-RuntimeProfiler.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -398,6 +514,7 @@
 				3642664A1B9C748600166A0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3642664B1B9C748600166A0B /* Build configuration list for PBXNativeTarget "RuntimeProfilerTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +523,7 @@
 				3642664D1B9C748600166A0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
