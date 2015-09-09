@@ -9,7 +9,6 @@
 #ifndef RuntimeProfiler_RuntimeProfiler_h
 #define RuntimeProfiler_RuntimeProfiler_h
 
-#import <RuntimeProfiler/RuntimeProfiler.h>
 #import <RuntimeProfiler/RuntimeProfiler-Swift.h>
 #import <Aspects/Aspects.h>
 

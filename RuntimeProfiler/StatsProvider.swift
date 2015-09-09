@@ -14,14 +14,40 @@ public class StatsProvider: NSObject {
     private var alertThreshold: Int64 = 500    // If something takes half of a second or longer, we want to know about it
     private var threadProfiles: Dictionary<String, ThreadContext> = [:]
     
+    /**
+     * Resets the statistics.
+     */
     public func reset() {
         threadProfiles.removeAll(keepCapacity: false)
+    }
+    
+    /**
+     * Gets you the ThreadContext for the main thread (if it exists).
+     */
+    public func getMainThreadStats() -> ThreadContext? {
+        return threadProfiles["1"]
+    }
+    
+    /**
+     * Gets you the Method Stats for the Main Thread.
+     */
+    public func getMethodStats(methodName: String) -> Array<ProfileLog>? {
+        return getMethodStats(methodName, threadContext: getMainThreadStats())
+    }
+    
+    /**
+     * Gets you the Method Stats for the provided method name and thread context.
+     */
+    public func getMethodStats(methodName: String, threadContext: ThreadContext?) -> Array<ProfileLog>? {
+        if nil != threadContext {
+            return threadContext?.profileMap[methodName]
+        }
+        return nil
     }
     
     /** Adds the provided ProfileLog object to the map - and completes it for you.  */
     public func addPerformanceLog(profileLog: ProfileLog?) -> Void {
         if nil != profileLog {
-            // TODO
             let currentThread = NSThread.currentThread()
             let threadInfo = currentThread.threadDictionary
             if nil == threadInfo["number"] {
@@ -42,7 +68,7 @@ public class StatsProvider: NSObject {
     }
     
     /** Here you go Objective-C.  */
-    public static func getSharedInstance() -> StatsProvider {
+    @objc public static func getSharedInstance() -> StatsProvider {
         return self.instance
     }
     
@@ -149,18 +175,6 @@ public class StatsProvider: NSObject {
         }
     }
     
-    public class Spy {
-        private var classType: AnyClass
-        private var methodCount: UnsafeMutablePointer<UInt32>
-        private var methodList: UnsafeMutablePointer<Method>
-        
-        public init(classType: AnyClass) {
-            self.classType = classType
-            self.methodCount = UnsafeMutablePointer<UInt32>()
-            self.methodList = class_copyMethodList(classType, methodCount)
-        }
-    }
-    
     // MARK: Helper Methods
     
     private func printBreak() {
@@ -195,8 +209,8 @@ public class StatsProvider: NSObject {
     }
     
     /**
-    * Parses the Thread description to get the Thread number.
-    */
+     * Parses the Thread description to get the Thread number.
+     */
     private func parseThreadNumber() -> String {
         var number = "-1"
         var description = NSThread.currentThread().description

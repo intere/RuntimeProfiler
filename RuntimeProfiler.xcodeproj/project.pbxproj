@@ -12,11 +12,11 @@
 		364266451B9C748600166A0B /* RuntimeProfilerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 364266441B9C748600166A0B /* RuntimeProfilerTests.m */; };
 		364266551B9C79E700166A0B /* ProfileLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364266541B9C79E700166A0B /* ProfileLog.swift */; };
 		364266571B9C7FCB00166A0B /* StatsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364266561B9C7FCB00166A0B /* StatsProvider.swift */; };
-		3642665D1B9DF02B00166A0B /* ObjectSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = 3642665B1B9DF02B00166A0B /* ObjectSwizzler.h */; };
+		3642665D1B9DF02B00166A0B /* ObjectSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = 3642665B1B9DF02B00166A0B /* ObjectSwizzler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3642665E1B9DF02B00166A0B /* ObjectSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3642665C1B9DF02B00166A0B /* ObjectSwizzler.m */; };
 		364B43D71B9E164C008DBC1D /* Swizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B43D61B9E164C008DBC1D /* Swizzler.swift */; };
 		364B43D81B9E16DC008DBC1D /* Profiler.h in Headers */ = {isa = PBXBuildFile; fileRef = 364266621B9E0D5000166A0B /* Profiler.h */; };
-		364B43D91B9E16E5008DBC1D /* RuntimeProfiler-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 3642665F1B9DF1B200166A0B /* RuntimeProfiler-Bridging-Header.h */; };
+		364B44B21B9F2403008DBC1D /* SwizzlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364B44B11B9F2403008DBC1D /* SwizzlerTest.swift */; };
 		6698028D5608570121F2FAE2 /* libPods-RuntimeProfiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D9CD269CC34510B807CAF0 /* libPods-RuntimeProfiler.a */; };
 /* End PBXBuildFile section */
 
@@ -41,9 +41,10 @@
 		364266561B9C7FCB00166A0B /* StatsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsProvider.swift; sourceTree = "<group>"; };
 		3642665B1B9DF02B00166A0B /* ObjectSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectSwizzler.h; sourceTree = "<group>"; };
 		3642665C1B9DF02B00166A0B /* ObjectSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectSwizzler.m; sourceTree = "<group>"; };
-		3642665F1B9DF1B200166A0B /* RuntimeProfiler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeProfiler-Bridging-Header.h"; sourceTree = "<group>"; };
 		364266621B9E0D5000166A0B /* Profiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Profiler.h; sourceTree = SOURCE_ROOT; };
 		364B43D61B9E164C008DBC1D /* Swizzler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swizzler.swift; sourceTree = "<group>"; };
+		364B44B01B9F2403008DBC1D /* RuntimeProfilerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeProfilerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		364B44B11B9F2403008DBC1D /* SwizzlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwizzlerTest.swift; sourceTree = "<group>"; };
 		6BBD44A12E40D94890534E3D /* Pods-RuntimeProfiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RuntimeProfiler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RuntimeProfiler/Pods-RuntimeProfiler.debug.xcconfig"; sourceTree = "<group>"; };
 		70D9CD269CC34510B807CAF0 /* libPods-RuntimeProfiler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RuntimeProfiler.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B701B682C4299575BB8B8BD1 /* Pods-RuntimeProfiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RuntimeProfiler.release.xcconfig"; path = "Pods/Target Support Files/Pods-RuntimeProfiler/Pods-RuntimeProfiler.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,12 +102,11 @@
 		364266341B9C748500166A0B /* RuntimeProfiler */ = {
 			isa = PBXGroup;
 			children = (
+				364266621B9E0D5000166A0B /* Profiler.h */,
+				364266371B9C748500166A0B /* RuntimeProfiler.h */,
 				364266531B9C79A900166A0B /* Models */,
 				364266521B9C791900166A0B /* Providers */,
 				3642665A1B9DF01700166A0B /* Utils */,
-				364266621B9E0D5000166A0B /* Profiler.h */,
-				364266371B9C748500166A0B /* RuntimeProfiler.h */,
-				3642665F1B9DF1B200166A0B /* RuntimeProfiler-Bridging-Header.h */,
 				364266351B9C748500166A0B /* Supporting Files */,
 			);
 			path = RuntimeProfiler;
@@ -123,7 +123,9 @@
 		364266411B9C748600166A0B /* RuntimeProfilerTests */ = {
 			isa = PBXGroup;
 			children = (
+				364B44B01B9F2403008DBC1D /* RuntimeProfilerTests-Bridging-Header.h */,
 				364266441B9C748600166A0B /* RuntimeProfilerTests.m */,
+				364B44AF1B9F23E7008DBC1D /* Utils */,
 				364266421B9C748600166A0B /* Supporting Files */,
 			);
 			path = RuntimeProfilerTests;
@@ -163,6 +165,14 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		364B44AF1B9F23E7008DBC1D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				364B44B11B9F2403008DBC1D /* SwizzlerTest.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		D66B9A37F8AA69E50EFB659D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,7 +189,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				364B43D81B9E16DC008DBC1D /* Profiler.h in Headers */,
-				364B43D91B9E16E5008DBC1D /* RuntimeProfiler-Bridging-Header.h in Headers */,
 				364266381B9C748500166A0B /* RuntimeProfiler.h in Headers */,
 				3642665D1B9DF02B00166A0B /* ObjectSwizzler.h in Headers */,
 			);
@@ -328,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				364266451B9C748600166A0B /* RuntimeProfilerTests.m in Sources */,
+				364B44B21B9F2403008DBC1D /* SwizzlerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6BBD44A12E40D94890534E3D /* Pods-RuntimeProfiler.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -443,6 +454,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -452,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B701B682C4299575BB8B8BD1 /* Pods-RuntimeProfiler.release.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -461,6 +474,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -468,6 +482,7 @@
 		3642664C1B9C748600166A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -479,12 +494,15 @@
 				INFOPLIST_FILE = RuntimeProfilerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RuntimeProfilerTests/RuntimeProfilerTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		3642664D1B9C748600166A0B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -492,6 +510,7 @@
 				INFOPLIST_FILE = RuntimeProfilerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RuntimeProfilerTests/RuntimeProfilerTests-Bridging-Header.h";
 			};
 			name = Release;
 		};

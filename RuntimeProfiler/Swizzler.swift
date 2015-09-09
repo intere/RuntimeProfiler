@@ -27,8 +27,20 @@ public class Swizzler: NSObject {
         return methodList as NSArray
     }
     
+    /**
+     * Profiles all methods for the provided class type.
+     */
+    @objc
     public static func profileAllClassMethods(clazz: AnyClass) {
-        
+        ObjectSwizzler.profileAllMethods(clazz)
+    }
+    
+    /**
+     * Profiles all methods for the provided instance object.
+     */
+    @objc
+    public static func profileAllInstanceMethods(object: NSObject) {
+        ObjectSwizzler.profileAllInstanceMethods(object)
     }
     
     /**
@@ -50,7 +62,8 @@ public class Swizzler: NSObject {
     }
     
     /** Gives you back a Method for the specified class and method name.  */
-    @objc public static func getSpecificMethodForClass(clazz: AnyClass, methodName: String) -> Method {
+    @objc
+    public static func getSpecificMethodForClass(clazz: AnyClass, methodName: String) -> Method {
         return class_getClassMethod(clazz, Selector(methodName))
     }
 }

@@ -7,6 +7,7 @@
 //
 
 #import "ObjectSwizzler.h"
+#import "Profiler.h"
 
 @implementation ObjectSwizzler
 
@@ -14,7 +15,9 @@
     NSArray *methodList = [Swizzler getMethodsForClass:[objectToProfile class]];
     
     for (NSString *methodName in methodList) {
-        [self profileInstance:objectToProfile methodNamed:methodName];
+        if(![self isBlacklisted:methodName]) {
+            [self profileInstance:objectToProfile methodNamed:methodName];
+        }
     }
 }
 
@@ -42,19 +45,34 @@
 }
 
 +(void)profileInstance:(NSObject *)objectToProfile methodNamed:(NSString *)methodName {
-    
+    __block NSString *localMethodName = [methodName copy];
     __block ProfileLog *profiler = nil;
     
     id beforeBlock = ^{
-        profiler = [[ProfileLog alloc]initWithClassName:[[objectToProfile class] description] methodName:methodName];
+        profiler = [[ProfileLog alloc]initWithClassName:[[objectToProfile class] description] methodName:localMethodName];
     };
     
     id afterBlock = ^{
         [[StatsProvider getSharedInstance] addPerformanceLog:profiler];
     };
     
+    NSLog(@"Profiling Method: %@", localMethodName);
     
-    [objectToProfile aspect_hookSelector:NSSelectorFromString(methodName) withOptions:AspectPositionBefore usingBlock:beforeBlock error:nil];
-    [objectToProfile aspect_hookSelector:NSSelectorFromString(methodName) withOptions:AspectPositionAfter usingBlock:afterBlock error:nil];
+    [objectToProfile aspect_hookSelector:NSSelectorFromString(localMethodName) withOptions:AspectPositionBefore usingBlock:beforeBlock error:nil];
+    [objectToProfile aspect_hookSelector:NSSelectorFromString(localMethodName) withOptions:AspectPositionAfter usingBlock:afterBlock error:nil];
 }
+
+
++(BOOL) isBlacklisted:(NSString *)methodName {
+    NSArray *METHOD_BLACKLIST = @[ @"respondsToSelector:", @"class", @"aspect_hookSelector:withOptions:usingBlock:error:" ];
+    
+    for (NSString *blacklistMethod in METHOD_BLACKLIST) {
+        if ([blacklistMethod isEqualToString:methodName]) {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
 @end

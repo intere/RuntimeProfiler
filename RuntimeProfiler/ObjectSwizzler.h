@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 iColasoft. All rights reserved.
 //
 
-#import "Profiler.h"
+#import <Foundation/Foundation.h>
 
 @interface ObjectSwizzler : NSObject
 
